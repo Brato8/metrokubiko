@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MetroKubiko</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="min-h-screen">
+        <!-- Header Component -->
+        <header class="bg-[#001B3B] text-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-between items-center h-16 px-4">
+                    <div class="flex items-center">
+                        <a href="../index.html" class="text-2xl font-bold mr-8">MetroKubiko</a>
+                        <nav>
+                            <ul class="flex space-x-6">
+                                <li><a href="#" class="text-gray-300 hover:text-white">Configuración</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <button class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+                            Tableros de control
+                        </button>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="bell" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                            <i data-lucide="message-circle" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                            <i data-lucide="help-circle" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                            <i data-lucide="user" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                            <i data-lucide="smartphone" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                            <i data-lucide="power" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- NavTabs Component -->
+        <nav class="bg-white border-b">
+            <div class="max-w-7xl mx-auto px-4">
+                <ul class="flex space-x-8">
+                    <li>
+                        <a href="Dashboard.html" class="block py-4 px-2 text-blue-600 font-medium border-b-2 border-blue-600">
+                            Resumen
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../almacen/modulo-de-almacen.html" class="block py-4 px-2 text-gray-600 hover:text-blue-600">
+                            Almacén
+                        </a>
+                    </li>
+                    <li><span class="block py-4 px-2 text-gray-400 cursor-not-allowed">Planificación</span></li>
+                    <li><span class="block py-4 px-2 text-gray-400 cursor-not-allowed">Control</span></li>
+                    <li><span class="block py-4 px-2 text-gray-400 cursor-not-allowed">Bases de datos</span></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="flex max-w-7xl mx-auto">
+            <!-- Main Content -->
+            <div class="flex-1 space-y-4 p-4 md:p-8 pt-6">
+                <div class="flex items-center justify-between space-y-2">
+                    <h2 class="text-3xl font-bold tracking-tight">Resumen del Proyecto</h2>
+                </div>
+
+                <!-- Metric Cards Grid -->
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                    <!-- Progreso del Proyecto -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-medium text-gray-500">Progreso del Proyecto</h3>
+                            <i data-lucide="bar-chart-3" class="h-4 w-4 text-gray-500"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-2xl font-bold">67.8%</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 67.8%"></div>
+                            </div>
+                            <p class="text-sm text-green-600">+2.1% de la semana pasada</p>
+                        </div>
+                    </div>
+
+                    <!-- Presupuesto Utilizado -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-medium text-gray-500">Presupuesto Utilizado</h3>
+                            <i data-lucide="building-2" class="h-4 w-4 text-gray-500"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-2xl font-bold">$847,423</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 82.3%"></div>
+                            </div>
+                            <p class="text-sm text-gray-500">82.3% del presupuesto total</p>
+                        </div>
+                    </div>
+
+                    <!-- Órdenes Activas -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-medium text-gray-500">Órdenes Activas</h3>
+                            <i data-lucide="clipboard-list" class="h-4 w-4 text-gray-500"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-2xl font-bold">24</p>
+                            <p class="text-sm text-gray-500">6 pendientes de aprobación</p>
+                        </div>
+                    </div>
+
+                    <!-- Miembros del Equipo -->
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-medium text-gray-500">Miembros del Equipo</h3>
+                            <i data-lucide="users" class="h-4 w-4 text-gray-500"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-2xl font-bold">32</p>
+                            <p class="text-sm text-gray-500">Activos en el proyecto</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity List -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-lg font-semibold mb-4">Actividades Recientes</h3>
+                    <div class="space-y-4">
+                        <!-- Requisición -->
+                        <div class="flex items-center justify-between py-3 border-b">
+                            <div>
+                                <p class="font-medium">Requisición</p>
+                                <p class="text-sm text-gray-500">Materiales de construcción para la Fase 2</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                    Pendiente
+                                </span>
+                                <p class="text-sm text-gray-500 mt-1">hace 2 horas</p>
+                            </div>
+                        </div>
+
+                        <!-- Orden -->
+                        <div class="flex items-center justify-between py-3 border-b">
+                            <div>
+                                <p class="font-medium">Orden</p>
+                                <p class="text-sm text-gray-500">Refuerzo de acero - 2000kg</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                    En progreso
+                                </span>
+                                <p class="text-sm text-gray-500 mt-1">hace 5 horas</p>
+                            </div>
+                        </div>
+
+                        <!-- Entrega -->
+                        <div class="flex items-center justify-between py-3">
+                            <div>
+                                <p class="font-medium">Entrega</p>
+                                <p class="text-sm text-gray-500">Entrega de cemento de Proveedor A</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    Completado
+                                </span>
+                                <p class="text-sm text-gray-500 mt-1">hace 1 día</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="w-80 space-y-4 p-4 pt-6">
+                <!-- Notifications Component -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h2 class="text-lg font-semibold mb-4">Notificaciones</h2>
+                    <!-- Notificación de Inventario Bajo -->
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-3">
+                        <div class="flex items-start">
+                            <i data-lucide="bell" class="h-4 w-4 text-red-500 mt-0.5"></i>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-red-700">Inventario Bajo</h3>
+                                <p class="text-xs text-red-600 mt-1">
+                                    El inventario de cemento está por debajo del mínimo requerido.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notificación de Orden Pendiente -->
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                        <div class="flex items-start">
+                            <i data-lucide="alert-circle" class="h-4 w-4 text-yellow-500 mt-0.5"></i>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-yellow-700">Orden Pendiente</h3>
+                                <p class="text-xs text-yellow-600 mt-1">
+                                    Tienes una orden pendiente de aprobación.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Component -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-semibold">Acciones Rápidas</h2>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm">
+                            Editar
+                        </button>
+                    </div>
+                    <div class="space-y-2">
+                        <button class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-orange-500 hover:text-white rounded-lg text-sm">
+                            <i data-lucide="plus" class="h-4 w-4 mr-2"></i>
+                            Nueva Requisición
+                        </button>
+                        <button class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-orange-500 hover:text-white rounded-lg text-sm">
+                            <i data-lucide="file-text" class="h-4 w-4 mr-2"></i>
+                            Crear Orden
+                        </button>
+                        <button class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-orange-500 hover:text-white rounded-lg text-sm">
+                            <i data-lucide="package-open" class="h-4 w-4 mr-2"></i>
+                            Registrar Entrada
+                        </button>
+                        <button class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-orange-500 hover:text-white rounded-lg text-sm">
+                            <i data-lucide="arrow-up-from-line" class="h-4 w-4 mr-2"></i>
+                            Registrar Salida
+                        </button>
+                        <button class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-orange-500 hover:text-white rounded-lg text-sm">
+                            <i data-lucide="file-output" class="h-4 w-4 mr-2"></i>
+                            Generar Informe
+                        </button>
+                        <button class="w-full flex items-center px-4 py-2 text-gray-700 hover:bg-orange-500 hover:text-white rounded-lg text-sm">
+                            <i data-lucide="calendar" class="h-4 w-4 mr-2"></i>
+                            Agendar Reunión
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órdenes de Compra - MetroKubiko</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="flex min-h-screen flex-col">
+        <!-- Header actualizado -->
+        <header class="bg-[#001B3B] text-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-between items-center h-16 px-4">
+                    <div class="flex items-center">
+                        <h1 class="text-2xl font-bold mr-8">MetroKubiko</h1>
+                        <nav>
+                            <ul class="flex space-x-6">
+                                <li><a href="#" class="text-gray-300 hover:text-white">Configuración</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <button class="text-gray-700 border-white hover:bg-blue-700 hover:text-white bg-white px-4 py-2 rounded flex items-center">
+                            Edificio del Bosque 
+                            <i data-lucide="chevron-down" class="ml-2 h-4 w-4 text-gray-700"></i>
+                        </button>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="bell" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                            <i data-lucide="message-circle" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                            <i data-lucide="help-circle" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                            <i data-lucide="user" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                            <i data-lucide="smartphone" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                            <i data-lucide="power" class="h-5 w-5 text-gray-300 hover:text-white cursor-pointer"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="bg-white border-b">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex items-center h-12">
+                    <!-- Botón Volver -->
+                    <a href="modulo-de-almacen.html" class="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+                        <i data-lucide="arrow-left" class="h-4 w-4"></i>
+                        <span class="text-sm font-medium">Volver a Almacén</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-1 space-y-4 p-4 md:p-8">
+            <!-- Header Actions -->
+            <div class="flex items-center justify-between">
+                <h1 class="text-2xl font-bold tracking-tight">Órdenes de Compra</h1>
+                <div class="flex items-center space-x-2">
+                    <!-- Dropdown Menu -->
+                    <div class="relative">
+                        <button class="flex items-center px-4 py-2 border rounded text-sm" onclick="toggleDropdown()">
+                            Acciones
+                            <i data-lucide="chevron-down" class="ml-2 h-4 w-4"></i>
+                        </button>
+                        <div id="dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg">
+                            <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">Exportar seleccionados</a>
+                            <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">Eliminar seleccionados</a>
+                            <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">Bloquear órdenes</a>
+                        </div>
+                    </div>
+                    <button class="flex items-center px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600">
+                        <i data-lucide="plus" class="mr-2 h-4 w-4"></i>
+                        Nueva Orden de Compra
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+                <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                    <!-- Year Select -->
+                    <div class="relative">
+                        <select class="w-[120px] border rounded px-3 py-2">
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
+                    <!-- Month Select -->
+                    <div class="relative">
+                        <select class="w-[120px] border rounded px-3 py-2">
+                            <option value="all">Todos</option>
+                            <option value="01">Enero</option>
+                            <option value="02">Febrero</option>
+                        </select>
+                    </div>
+                    <!-- Provider Select -->
+                    <div class="relative">
+                        <select class="w-[200px] border rounded px-3 py-2">
+                            <option value="all">Todos los proveedores</option>
+                            <option value="proveedorA">Proveedor A</option>
+                            <option value="proveedorB">Proveedor B</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex w-full items-center space-x-2 md:w-auto">
+                    <input type="text" placeholder="Buscar órdenes..." class="w-full md:w-[300px] border rounded px-3 py-2">
+                    <button class="p-2 border rounded">
+                        <i data-lucide="search" class="h-4 w-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="rounded-lg border bg-white">
+                <table class="min-w-full">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="w-[40px] px-4 py-3">
+                                <input type="checkbox" class="rounded border-gray-300">
+                            </th>
+                            <th class="px-4 py-3 text-left">Código</th>
+                            <th class="px-4 py-3 text-left">Responsable</th>
+                            <th class="px-4 py-3 text-left">Proveedor</th>
+                            <th class="px-4 py-3 text-left">Fecha</th>
+                            <th class="px-4 py-3 text-left">Número</th>
+                            <th class="px-4 py-3 text-right">Valor</th>
+                            <th class="px-4 py-3 text-left">Requisición</th>
+                            <th class="px-4 py-3 text-left">Vigencia</th>
+                            <th class="px-4 py-3 text-center">Entradas</th>
+                            <th class="px-4 py-3 text-right">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Order Row 1 -->
+                        <tr class="border-b">
+                            <td class="px-4 py-3">
+                                <input type="checkbox" class="rounded border-gray-300">
+                            </td>
+                            <td class="px-4 py-3 font-medium">OC-10001</td>
+                            <td class="px-4 py-3">Juan Pérez</td>
+                            <td class="px-4 py-3">Proveedor A</td>
+                            <td class="px-4 py-3">2024-01-15</td>
+                            <td class="px-4 py-3">001</td>
+                            <td class="px-4 py-3 text-right">$1,500.00</td>
+                            <td class="px-4 py-3">REQ-001</td>
+                            <td class="px-4 py-3">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    Vigente
+                                </span>
+                            </td>
+                            <td class="px-4 py-3 text-center">2</td>
+                            <td class="px-4 py-3">
+                                <div class="flex justify-end space-x-2">
+                                    <button class="p-1 hover:bg-gray-100 rounded">
+                                        <i data-lucide="search" class="h-4 w-4"></i>
+                                    </button>
+                                    <button class="p-1 hover:bg-gray-100 rounded">
+                                        <i data-lucide="edit" class="h-4 w-4"></i>
+                                    </button>
+                                    <button class="p-1 hover:bg-gray-100 rounded">
+                                        <i data-lucide="lock" class="h-4 w-4"></i>
+                                    </button>
+                                    <button class="p-1 hover:bg-gray-100 rounded text-red-600">
+                                        <i data-lucide="trash-2" class="h-4 w-4"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Order Row 2 -->
+                        <tr class="border-b">
+                            <td class="px-4 py-3">
+                                <input type="checkbox" class="rounded border-gray-300">
+                            </td>
+                            <td class="px-4 py-3 font-medium">OC-10002</td>
+                            <td class="px-4 py-3">María García</td>
+                            <td class="px-4 py-3">Proveedor B</td>
+                            <td class="px-4 py-3">2024-01-16</td>
+                            <td class="px-4 py-3">002</td>
+                            <td class="px-4 py-3 text-right">$2,300.50</td>
+                            <td class="px-4 py-3">REQ-002</td>
+                            <td class="px-4 py-3">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    Vigente
+                                </span>
+                            </td>
+                            <td class="px-4 py-3 text-center">1</td>
+                            <td class="px-4 py-3">
+                                <div class="flex justify-end space-x-2">
+                                    <button class="p-1 hover:bg-gray-100 rounded">
+                                        <i data-lucide="search" class="h-4 w-4"></i>
+                                    </button>
+                                    <button class="p-1 hover:bg-gray-100 rounded">
+                                        <i data-lucide="edit" class="h-4 w-4"></i>
+                                    </button>
+                                    <button class="p-1 hover:bg-gray-100 rounded">
+                                        <i data-lucide="lock" class="h-4 w-4"></i>
+                                    </button>
+                                    <button class="p-1 hover:bg-gray-100 rounded text-red-600">
+                                        <i data-lucide="trash-2" class="h-4 w-4"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Dropdown toggle function
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('dropdown');
+            const button = event.target.closest('button');
+            if (!button && !dropdown.classList.contains('hidden')) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
